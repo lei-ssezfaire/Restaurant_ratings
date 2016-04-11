@@ -2,6 +2,8 @@
 import sys
 
 def print_ratings(file_name):
+	""" Takes data file and prints ratings """
+	
 	try: 
 		restaurant_data = open(file_name)
 	except: 
@@ -11,9 +13,9 @@ def print_ratings(file_name):
 	restaurant_names = []
 	for line in restaurant_data:
 		line = line.rstrip()
-		line_data = line.split(":")
-		ratings_dict[line_data[0]] = line_data[1]
-		restaurant_names.append(line_data[0])
+		name, rating = line.split(":")
+		ratings_dict[name] = rating
+		restaurant_names.append(name)
 	restaurant_names = sorted(restaurant_names)
 	for restaurant in restaurant_names:
 		if restaurant in ratings_dict:
